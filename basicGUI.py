@@ -1,21 +1,1 @@
-#from Tkinter import *
-# if you are working under Python 3, comment the previous line and comment out the following line
-from tkinter import *
-
-root = Tk()
-
-w = Label(root, text="Hello Tkinter!")
-w.pack()
-root = Tk()
-logo = PhotoImage(file="~/Desktop/Picture1.gif")
-w1 = Label(root, image=logo).pack(side="right")
-explanation = """At present, only GIF and PPM/PGM
-formats are supported, but an interface
-exists to allow additional image file
-formats to be added easily."""
-w2 = Label(root,
-           justify=LEFT,
-           padx=10,
-           text=explanation).pack(side="left")
-
-root.mainloop()
+from tkinter import *root = Tk()menu_bar = Menu(root)file_menu = Menu(menu_bar, tearoff=0)# all file menu-items will be added here nextmenu_bar.add_cascade(label='File', menu=file_menu)menu_bar.add_cascade(label='Edit', menu=file_menu)menu_bar.add_cascade(label='System', menu=file_menu)menu_bar.add_cascade(label='Help', menu=file_menu)root.config(menu=menu_bar)PROGRAM_NAME = " Voter Turnout Prediction System "root.title(PROGRAM_NAME)menu_bar.add_command(label="Menu Item Label", accelerator='KeyBoard Shortcut',                     compound='left', image=my_image, underline=0,                     command=callback)# all our code goes hereroot.mainloop()
