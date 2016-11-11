@@ -61,5 +61,6 @@ interface.
 The Microsoft Blob storage is being paid for out of my own pocket and the batch request functionality requires use of that storage. Because I'm a poor student I'll be taking it down at the start of December. If there are any issues feel free to call me.**
 
 **References and Resources**
-* The calls to the Azure API have been heavily modified from the sample code available at: [https://services.azureml.net/workspaces](https://services.azureml.net/workspaces) (This requires an active Azure ML experiment setup).
-* The calls to the PyQt5 library code were found using the PyQt5 documentation available at:[http://pyqt.sourceforge.net/Docs/PyQt5/](http://pyqt.sourceforge.net/Docs/PyQt5/)
+* The calls to the Azure API have been heavily modified from the sample code available at:  [https://services.azureml.net/workspaces](https://services.azureml.net/workspaces) (This requires an active Azure ML experiment setup).
+* The calls to the PyQt5 library code were found using the PyQt5 documentation available at: [http://pyqt.sourceforge.net/Docs/PyQt5/](http://pyqt.sourceforge.net/Docs/PyQt5/)
+* All other code was personally built from previous experience with PyQt5 and Python 3.x.

@@ -128,7 +128,7 @@ class VtpsBatch(QWidget):
             self.stdOut.insertPlainText('File selected.\n')
             self.stdOut.moveCursor(11)
 
-    def do_the_big_thing(self):    
+    def do_the_big_thing(self):
         if self.inputFile.text() is '':
             self.stdOut.insertPlainText('No input file detected. Operation Aborted.\n')
             self.stdOut.moveCursor(11)
@@ -141,6 +141,7 @@ class VtpsBatch(QWidget):
             outpath = self.outputDir.text() + '/'
             APIBatch.invokeBatchExecutionService(self.inputFile.text(),outpath)
             self.stdOut.insertPlainText('Analysis complete. \nSee output directory for results.\n')
+            self.stdOut.moveCursor(11)
 
 
 class VtpsSingle(QWidget):
