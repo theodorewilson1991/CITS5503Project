@@ -1,33 +1,33 @@
 **Operational Requirements**
 
-This is for those who are aiming to just get the program running quickly.
+This section is specifically for those who are aiming to just get the program running quickly.
 
 * VTPS requires
-   * Python (version 3.x or later), available from [http://www.python.org/](http://google.com)
+   * Python (version 3.x or later), available from [http://www.python.org/](http://www.python.org/)
    * The PyQt 5 library which can be installed via the command line argument `pip3 install pyqt5`
    * The Vtps system can then be run from the active directory through the command line argument `python3 Vtps.py`
 
 **Purpose**
 
 The purpose of the VTPS project is to create a tool for utilizing machine
-learning to determine voter turnout in voluntary election as well as determining which party the voters that do turn up will vote for. The system utilizes two separate cloud services to enable this. 
+learning to determine voter turnout in voluntary election as well as determining which party the voters that do turn up will vote for. The system utilizes two separate cloud services to enable this.
 
 The software can interpret data from the following file formats:
-- \*.csv   Comma-separated values
+* \*.csv   Comma-separated values
 
 In the future the following data formats are planned to be implemented:
-- \*.xml   Extensible Markup Language
-- \*.yml   YAML Ain't Markup Language
+* \*.xml   Extensible Markup Language
+* \*.yml   YAML Ain't Markup Language
 
 **Requirements**
 
-- To run the code, Python must be installed. VTPS is compatible with Python
+* To run the code, Python must be installed. VTPS is compatible with Python
 versions 3.1 and 3.2 (cf. Python 3 compatibility).
 
 VTPS requires the following package to effectively function. The VTPS may fail
 to function if they are not installed:
 
-- The Python Qt library, or PyQt5, is used to construct the graphic user
+* The Python Qt library, or PyQt5, is used to construct the graphic user
 interface.
 
 **Project Files & Directories**
@@ -54,7 +54,12 @@ interface.
 
 **Future Work**
 * Improve analysis of the batch data processing including functionality with PowerBi to conduct statistical regression on the mean and standard deviation of the sample population.
-* Improve the GUI functionality to enable improved process feedback from both GUI functions. All command line outputs should be displayed
+* Improve the GUI functionality to enable improved process feedback from both GUI functions. All command line outputs should be displayed when the code is implemented.
+* Add the final data points for the single call-response function. Over 40 questions are missing however they have been proven to contribute less to the overall mean probability of voting.
 
 **Additional note for Prof Liu!!
-The Microsoft Blob storage is being paid for out of my own pocket and the batch request functionality requires use of that storeage. Because I'm a poor student I'll be taking it down at the start of december. If there are any issues feel free to call me.**
+The Microsoft Blob storage is being paid for out of my own pocket and the batch request functionality requires use of that storage. Because I'm a poor student I'll be taking it down at the start of December. If there are any issues feel free to call me.**
+
+**References and Resources**
+* The calls to the Azure API have been heavily modified from the sample code available at: [https://services.azureml.net/workspaces](https://services.azureml.net/workspaces) (This requires an active Azure ML experiment setup).
+* The calls to the PyQt5 library code were found using the PyQt5 documentation available at:[http://pyqt.sourceforge.net/Docs/PyQt5/](http://pyqt.sourceforge.net/Docs/PyQt5/)
