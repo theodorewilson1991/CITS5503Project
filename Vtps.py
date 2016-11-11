@@ -32,6 +32,10 @@ class Vtps(QWidget):
         singlebtn.resize(200,100)
         singlebtn.move(40, 15)
 
+        app_icon = QtGui.QIcon()
+        app_icon.addFile('icon.jpg')
+        app.setWindowIcon(app_icon)
+
         self.show()
 
     def activateSingle(self):
@@ -65,8 +69,12 @@ class VtpsBatch(QWidget):
 
         self.calcbtn = QPushButton('Calculate', self)
         self.calcbtn.clicked.connect(self.do_the_big_thing)
-        calcbtn.resize(calcbtn.sizeHint())
-        calcbtn.move(350, 115)
+        self.calcbtn.resize(self.calcbtn.sizeHint())
+        self.calcbtn.move(350, 115)
+
+        app_icon = QtGui.QIcon()
+        app_icon.addFile('icon.jpg')
+        app.setWindowIcon(app_icon)
 
         brsbtn1 = QPushButton('Browse', self)
         brsbtn1.clicked.connect(self.browse_file)
@@ -105,7 +113,7 @@ class VtpsBatch(QWidget):
         gui.show()
 
     def showDialog(self):
-        outputLoc = QFileDialog.getExistingDirectory()
+        outputLoc = QFileDialog.getExistingDirectory(options=QFileDialog.DontUseNativeDialog)
 
         if outputLoc is not None:
             self.outputDir.setText(outputLoc)
@@ -113,14 +121,14 @@ class VtpsBatch(QWidget):
             self.stdOut.moveCursor(11)
 
     def browse_file(self):
-        file_name = QFileDialog.getOpenFileName()
+        file_name = QFileDialog.getOpenFileName(options=QFileDialog.DontUseNativeDialog)
 
         if file_name[1]:
             self.inputFile.setText(file_name[0])
             self.stdOut.insertPlainText('File selected.\n')
             self.stdOut.moveCursor(11)
 
-    def do_the_big_thing(self):
+    def do_the_big_thing(self):    
         if self.inputFile.text() is '':
             self.stdOut.insertPlainText('No input file detected. Operation Aborted.\n')
             self.stdOut.moveCursor(11)
@@ -132,6 +140,7 @@ class VtpsBatch(QWidget):
             self.stdOut.moveCursor(11)
             outpath = self.outputDir.text() + '/'
             APIBatch.invokeBatchExecutionService(self.inputFile.text(),outpath)
+            self.stdOut.insertPlainText('Analysis complete. \nSee output directory for results.\n')
 
 
 class VtpsSingle(QWidget):
@@ -158,6 +167,10 @@ class VtpsSingle(QWidget):
         extbtn.clicked.connect(QCoreApplication.instance().quit)
         extbtn.resize(extbtn.sizeHint())
         extbtn.move(300, 110)
+
+        app_icon = QtGui.QIcon()
+        app_icon.addFile('icon.jpg')
+        app.setWindowIcon(app_icon)
 
         lbloutput = QLabel('Are you on the do not call list?', self)
         lbloutput.move(20, 365)
@@ -309,9 +322,6 @@ class VtpsSingle(QWidget):
         self.educationLeveltext     = self.educationLevelcombo.currentText()
         self.dontPhonetext          = self.dontPhonecombo.currentText()
 
-
-        print(self.educationLeveltext)
-        print('\n')
         result = APISingle.SummonAzure(self.cntEligibletext,
                                        self.gendertext,
                                        self.partyAffiliationtext,
@@ -324,7 +334,11 @@ class VtpsSingle(QWidget):
                                        self.cnttext,
                                        self.educationLeveltext,
                                        self.dontPhonetext)
-        result = result.decode('utf-8')
+        if result is None:
+            result = 'ERROR'
+        else:
+            result = str(result)
+
         self.results.setText(result)
 if __name__ == '__main__':
 
