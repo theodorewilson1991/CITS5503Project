@@ -1,3 +1,7 @@
+**Preface**
+
+The simplest method to predicting how many will turn up to vote is simple. You survey an individual and ask them. This is a common technique used by political scientists and data analysts. People who say they plan to vote are included in the survey and those who say they won’t vote are not. The issue with this question is that most potential voters say they plan to vote, and as has been shown recently this is simply untrue with the most recent US federal election having a voter turnout of only 45%. Therefore this system aims to use the Microsoft Azure cloud in order to determine a more accurate estimate of who pans to vote in an election.
+
 **Operational Requirements**
 
 This section is specifically for those who are aiming to just get the program running quickly.
@@ -6,6 +10,10 @@ This section is specifically for those who are aiming to just get the program ru
    * Python (version 3.x or later), available from [http://www.python.org/](http://www.python.org/)
    * The PyQt 5 library which can be installed via the command line argument `pip3 install pyqt5`
    * The Vtps system can then be run from the active directory through the command line argument `python3 Vtps.py`
+
+**Example Data**
+
+The system comes premade with a sample set of data to upload into the Batch Request system.
 
 **Purpose**
 
@@ -45,6 +53,7 @@ interface.
     * A single voter mode to determine the likelyhood of an individual to turn up and vote. This result should immediately present the output of the analysis
     * A multidata mode which can accept \*.csv files and return an output.
   * The system must perform with a suitable level of confidence and a low error rate.
+  * The system should output the likelyhood of an individual turning up to vote.
 
 * Non-Functional Requirements
   * System must be easy to deploy and allow use by the semi or non computer literate.

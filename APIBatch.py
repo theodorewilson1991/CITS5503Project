@@ -90,7 +90,7 @@ def invokeBatchExecutionService(infile,outputDir):
     }
 
     body = str.encode(json.dumps(payload))
-    headers = { "Content-Type":"application/json", "Authorization":("Bearer " + api_key)}
+    headers = {"Content-Type":"application/json", "Authorization":("Bearer " + api_key)}
     print("Submitting the job...")
 
 
@@ -121,7 +121,7 @@ def invokeBatchExecutionService(infile,outputDir):
 
     while True:
         print("Checking the job status...")
-        req = urllib.request.Request(url2, headers = { "Authorization":("Bearer " + api_key)})
+        req = urllib.request.Request(url2, headers={"Authorization":("Bearer " + api_key)})
 
         try:
             response = urllib.request.urlopen(req)
